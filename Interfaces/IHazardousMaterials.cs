@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IPerishableProducts
+    internal interface IHazardousMaterials
     {
         public string Name { get; set; }
         public double Price { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public double SubstanceClass { get; set; }
+        public int NumberUN { get; set; }
 
-        public int CountDaysBeforeSpoilage();
+        public string PrintSubstance();
 
-        public string PrintDayBeforeSpoilage();
-        
-        public string PrintDateTime();
     }
 }

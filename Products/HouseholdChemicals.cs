@@ -22,7 +22,7 @@ namespace Store.Products
         public override string ToString()
         {
             return "Category: household chemicals. Name: " + Name +
-                "Price: " + Price.ToString();
+                ". Price: " + Price.ToString();
         }
     }
 }

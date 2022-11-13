@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IPerishableProducts
+    internal interface IFragileGoods
     {
         public string Name { get; set; }
         public double Price { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public string Type { get; set; }
+        public string Marking { get; set; }
 
-        public int CountDaysBeforeSpoilage();
-
-        public string PrintDayBeforeSpoilage();
-        
-        public string PrintDateTime();
+        public string PrintType();
     }
 }
