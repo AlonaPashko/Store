@@ -13,4 +13,7 @@ The folder Enums has a two enums: Category (for the distribution of products by 
 
 The folder FileOperations has a FileReader class for reading information from a file.
 
-The folder Services has a CompareByPrice, ExceptionHandler and StorageComparer classes, each of which performs its specific tasks.
+The folder Services has a CompareByPrice, StorageComparer, ArrivedProducts, SoldedProducts, ExpiredProducts classes, each of which 
+performs its specific tasks.
+
+The folder Exceptions has exception classes and ExceptionHandler.
