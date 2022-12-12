@@ -8,5 +8,6 @@ namespace Store.Interfaces
 {
     internal interface IExpressionReader
     {
+        List<string> ReadExpression();
     }
 }

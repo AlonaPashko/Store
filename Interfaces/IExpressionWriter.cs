@@ -8,5 +8,6 @@ namespace Store.Interfaces
 {
     internal interface IExpressionWriter
     {
+        void WriteExpression(object obj, string filePath);
     }
 }

@@ -59,11 +59,6 @@ namespace Store.Products
                 TotalPrice.Equals(((Storage)otherStorage).TotalPrice);
         }
 
-        public void Initialization(string name, double weight, double price)
-        {
-            Product product = new Product(name, price, weight);
-        }
-
         public string PrintList()
         {
             string line = "";
