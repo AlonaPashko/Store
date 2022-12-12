@@ -9,13 +9,17 @@ namespace Store.Products
     internal class HouseholdChemicals : Product
     {
         public string Name { get; set; }
+        public double Weight { get; set; }
         public double Price { get; set; }
 
-        public HouseholdChemicals() : this("", 0.0) { }
 
-        public HouseholdChemicals(string name, double price)
+        public HouseholdChemicals() : this("", 0.0, 0.0) { }
+
+        public HouseholdChemicals(string name, double weight, double price)
+            : base(name, weight, price)
         {
             Name = name;
+            Weight = weight;
             Price = price;
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,50 +7,45 @@ using System.Threading.Tasks;
 
 namespace Store.FileOperation
 {
-    internal class FileReader
+    internal class FileReader : IExpressionReader
     {
-        public string ReadFromFile(string path)
-        {
-            string line = "";
-            StreamReader reader = new StreamReader(path);
-            line += reader.ReadToEnd();
-            reader.Close();
-            return line;
-        }
-        public string ReadFromFileWithAttempts()
-        {
-            int attempts = 0;
-            while (true)
-            {
-                if (attempts >= 3)
-                {
-                    throw new FileNotFoundException();
-                }
-                Console.WriteLine("Please, write the path of file: ");
-                string path = Console.ReadLine();
+        private string filePath;
 
-                if (!IsFileExists(path))
-                {
-                    attempts++;
-                }
-                else
-                {
-                    return ReadFromFile(path);
-                }
-            }
-        }
-        public bool IsFileExists(string path)
+        public string FilePath
         {
-            if (!File.Exists(path))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            get => filePath;
+            set { if (value != null) filePath = value; }
         }
 
+        //public FileReader()
+        //{
+        //    filePath = @"..\\..\\..\\Files\\Persons.txt";
+        //}
+
+        public FileReader(string filePath)
+        {
+            this.filePath = filePath;
+        }
+
+        public List<string> ReadExpression()
+        {
+            if (filePath == null || filePath == "")
+            {
+                throw new FileNotFoundException();
+            }
+            if (!File.Exists(filePath)) { File.Create(filePath); }
+
+            List<string> result = new();
+            using (StreamReader sr = new(filePath))
+            {
+                while (!sr.EndOfStream)
+                {
+                    result.Add(sr.ReadLine());
+                }
+                sr.Close();
+            }
+            return result;
+        }
     }
 
 }

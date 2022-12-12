@@ -108,14 +108,7 @@ namespace Store.Products
             TotalWeight = double.Parse(array[1]);
             TotalPrice = double.Parse(array[2]);
         }
-
-        //public Storage MakeStorageFromFile()
-        //{
-        //    Storage storage = new Storage(MakeCollFromFile());
-
-        //    return storage;
-        //}
-
+        
         public bool IsCorrectProduct(Product product)
         {
             if (product.Weight != 0 && product.Price != 0)
@@ -127,24 +120,5 @@ namespace Store.Products
                 return false;
             }
         }
-        //public List<Product> MakeCollFromFile() //if met the product with Price or Weight = 0, system doesn`t add to coll 
-        //{
-        //    string line = ReadFromFileWithAttempts();
-        //    string[] array = line.Split('\n');
-
-        //    List<Product> productsList = new List<Product>();
-        //    for (int i = 0; i < array.Length; i++)
-        //    {
-        //        Product product = new Product();
-        //        product.Parse(array[i]);
-
-        //        if (IsCorrectProduct(product))
-        //        {
-        //            product.Name = product.CorrectName();
-        //            productsList.Add(product);
-        //        }
-        //    }
-        //    return productsList;
-        //}
     }
 }
