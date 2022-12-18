@@ -1,1 +1,27 @@
 ﻿
+Storage is a class with private fields:
+
+- productsAmount - the total amount of products (int),
+- totalWeight - the total weight of products (double),
+- totalPrice - the total cost of products (double),
+- products - the list of products (List<Product>).
+        
+And public properties: 
+
+- ProductsAmount,
+- TotalWeight,
+- TotalPrice,
+- Products.
+
+ Class Storage has two constructors: one with a list of products as a parameter, and another one - empty, where 
+ the empty list of products has been created. In a both of constructors the TotalWeight and the TotalPrice 
+ properties are set using separate methods: SetTotalWeight and SetTotalPrice.
+   
+ Also the Storage has overided ToString and Equals methods for writing and comparation with another storage accordingly,
+ method PrintList for printing storage products.
+
+ Has a method ChangePrice for changing price, when some discount is active.
+
+ Also Storage has an indexer for Products, IsCorrectProduct method (that has a Product as a parameter and check this Product
+ of zero fields value) and Parse method (that making Storage object of the string line).
+

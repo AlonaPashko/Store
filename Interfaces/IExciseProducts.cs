@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IExciseGoods
+    internal interface IExciseProducts
     {
         public string Name { get; set; }
         public double Price { get; set; }
