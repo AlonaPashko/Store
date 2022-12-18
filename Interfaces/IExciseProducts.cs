@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IExciseProducts
+    internal interface IExciseProducts : IProduct, IPrint
     {
-        public string Name { get; set; }
-        public double Price { get; set; }
-
         public string LicenceID { get; set; }
         public int LicenceNumber { get; set; }
         public DateTime LicenceTerm { get; set; }
-
-        public string PrintLicence();
-
     }
 }

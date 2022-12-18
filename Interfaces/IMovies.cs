@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IHazardousMaterials : IProduct, IPrint
+    internal interface IMovies
     {
-       
-        public double SubstanceClass { get; set; }
-        public int NumberUN { get; set; }
     }
 }

@@ -1,29 +1,28 @@
 # Store
+It`s a store progect with system of interfaces:
 
-It`s a store progect with base class Product and subclasses: 
+- IProduct - has Name, Price and Producent properties,
+- IPrint - has a method for printing,
+- IExpressionReader - for the Reader class,
+- IExpressionWriter - for the Writer class,
+- IBuy,
+- IExiceProducts (inherits IProduct, IPrint) - includes properties and methods relating to the licence, 
+- IFragileProducts (inherits IProduct, IPrint) - includes Marking and Type properties, 
+- IHazardousMaterial (inherits IProduct, IPrint) - includes properties relating to the substance class and unification number, 
+- IPerishableProducts (inherits IProduct, IPrint) - includes methods of counting days before spoilage,
+- IMovies (inherits IProduct, IPrint) - includes Genre and YearOfRelease properties.
+ 
+Also project has a superclass Product (implements IProduct, IComparable, IPrint) and subclasses: 
 
 - Meat - describes meat, 
-- DairyProducts - describes dairy products, 
+- DairyProducts (implements IPerishableProducts) - describes dairy products, 
 - HouseholdChemical - describes household chemical products.
-
-Class Product implements the interface IComparable for comparation objects.
 
 Also project has classes: 
 
-- Buy - can parse a string, show a purchase, 
-- Check (implemented IPrint) - can check a purchase,
+- Buy (implements IProduct) - show a purchase, 
+- Check (implements IPrint) - can check a purchase,
 - Storage - is a collection of Products.
-
-The folder Interfaces has interfaces: 
-
-- IViewerBuy - has a method for showing the class Buy,
-- IPrint (inherits IViewerBuy) - has a method for printing the purchase,
-- IExpressionReader - for the Reader class,
-- IExpressionWriter - for the Writer class,
-- IExiceProducts - includes properties and methods relating to the licence, 
-- IFragileProducts - includes Marking and Type properties, 
-- IHazardousMaterial - includes properties relating to the substance class and unification number, 
-- IPerishableProducts - includes methods of counting days before spoilage.
 
 The folder Enums has enums: 
 
@@ -49,3 +48,5 @@ The folder Exceptions has classes:
 - ExceptionHandler - for the manage exceptions,
 - ExpirationDateException - throw exception when the Product is exipired,
 - NoAvailableException - throw exception, when the Product doesn't exist.
+
+The folder Diagrams has an interfaces diagram.

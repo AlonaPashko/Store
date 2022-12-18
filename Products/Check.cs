@@ -18,14 +18,9 @@ namespace Store.Products
         {
             Console.WriteLine(product);
         }
-        public void ViewerBuy(Buy buy)
-        {
-            Console.WriteLine(buy);
-        }
-
         public void Print()
         {
-            Console.WriteLine("Check");
+            Console.WriteLine("Check your purchases: ");
         }
     }
 }

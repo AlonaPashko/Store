@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,61 +7,33 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    public class Buy
+    public class Buy : IProduct
     {
-        private string name;
-        private int boughtNumber;
-        private double boughtWeight;
-        private double boughtPrice;
-
         public string Name { get; set; }
+        public double Price { get; set; }
+        public string Producent { get; set; }
         public int BoughtNumber { get; set; }
-        public double BoughtWeight { get; set; }
-        public double BoughtPrice { get; set; }
 
-        public Buy() : this(null, 0, 0.0, 0.0) { }
+        public Buy() : this("", 0.0, "", 0) { }
 
-        public Buy(string name, int boughtNumber, double boughtWeight, double boughtPrice)
+        public Buy(string name, double price, string producent, int boughtNumber)
         {
             Name = name;
+            Price = price;
+            Producent = producent;
             BoughtNumber = boughtNumber;
-            BoughtWeight = boughtWeight;
-            BoughtPrice = boughtPrice;
         }
         public override string ToString()
         {
-            return string.Format("Goods: " + Name + " " + BoughtNumber + " Weight: " + BoughtWeight +
-                " Price: " + BoughtPrice);
+            return string.Format("Product: " + Name + " produced in " + Producent + " Numbers: "
+                + BoughtNumber + " Price: " + Price);
         }
         public override bool Equals(object? otherBuy)
         {
             return Name.Equals(((Buy)otherBuy).Name) &&
-                BoughtNumber.Equals(((Buy)otherBuy).BoughtNumber) &&
-                BoughtWeight.Equals(((Buy)otherBuy).BoughtWeight) &&
-                BoughtPrice.Equals(((Buy)otherBuy).BoughtPrice);
+                Price.Equals(((Buy)otherBuy).Price) &&
+                Producer.Equals(((Buy)otherBuy).Producent) &&
+                BoughtNumber.Equals(((Buy)otherBuy).BoughtNumber);
         }
-
-        public void Parse(string str)
-        {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
-            string[] arrayStr = str.Split(' ');
-            if (!int.TryParse(arrayStr[0], out boughtNumber))
-            {
-                throw new ArgumentException();
-            }
-            if (!double.TryParse(arrayStr[1], out boughtWeight))
-            {
-                throw new ArgumentException();
-            }
-            if (!double.TryParse(arrayStr[2], out boughtPrice))
-            {
-                throw new ArgumentException();
-            }
-        }
-
-
     }
 }

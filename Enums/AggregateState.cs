@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Store.Interfaces
+namespace Store.Enums
 {
-    internal interface IPrint
+    internal class AggregateState
     {
-        void Print();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,41 +9,18 @@ using System.Xml.Linq;
 
 namespace Store.Products
 {
-    internal class DairyProducts : Product
+    internal class DairyProducts : Product, IPerishableProducts
     {
         public DateTime ExpirationDate { get; set; }
 
-        public DairyProducts() : this(null, 0.0, default, 0.0) { }
-
-        public DairyProducts(string name, double weight, DateTime expirationDate, double price)
-            : base(name, weight, price)
+        public int CountDaysBeforeSpoilage()
         {
-            ExpirationDate = expirationDate;
-        }
-        public override string ToString()
-        {
-            return base.ToString() + " Date of expiration: " + ExpirationDate;
-        }
-        public override bool Equals(object otherDairyProducts)
-        {
-            return Name.Equals(((DairyProducts)otherDairyProducts).Name) &&
-                Weight.Equals(((DairyProducts)otherDairyProducts).Weight) &&
-                ExpirationDate.Equals(((DairyProducts)otherDairyProducts).ExpirationDate) &&
-                Price.Equals(((DairyProducts)otherDairyProducts).Price);
+            return 0;
         }
 
-        public override double ChangePrice(int rate)
+        public string PrintDayBeforeSpoilage()
         {
-            Price = Price + (double)(Price * rate / 100.0);
-            return Price;
+            return CountDaysBeforeSpoilage().ToString();
         }
-
-        public override void Parse(string str)
-        {
-            base.Parse(str);
-            string dateString = null;
-            DateTime.Parse(dateString);
-        }
-
     }
 }
