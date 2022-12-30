@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IMovies
+    internal interface IMovies : IProduct, IPrint
     {
+        public int Genre { get; set; }
+        public int YearOfRelease { get; set; }
     }
 }

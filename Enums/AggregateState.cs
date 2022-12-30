@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace Store.Enums
 {
-    internal class AggregateState
-    {
-    }
+    public enum AggregateState { Liquid, Spray, Powder };
 }

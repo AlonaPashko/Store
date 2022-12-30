@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Store.Enums;
+using Store.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,26 +8,20 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    internal class HouseholdChemicals : Product
+    internal class HouseholdChemicals : Product, IHouseholdChemicals
     {
         public string Name { get; set; }
         public double Price { get; set; }
+        public AggregateState State { get; set; }
 
-
-        public HouseholdChemicals() : this("", 0.0, 0.0) { }
-
-        public HouseholdChemicals(string name, double weight, double price)
-            : base(name, weight, price)
-        {
-            Name = name;
-            Weight = weight;
-            Price = price;
-        }
+      //ctors
 
         public override string ToString()
         {
             return "Category: household chemicals. Name: " + Name +
                 ". Price: " + Price.ToString();
         }
+
+      
     }
 }

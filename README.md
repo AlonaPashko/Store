@@ -10,7 +10,10 @@ It`s a store progect with system of interfaces:
 - IFragileProducts (inherits IProduct, IPrint) - includes Marking and Type properties, 
 - IHazardousMaterial (inherits IProduct, IPrint) - includes properties relating to the substance class and unification number, 
 - IPerishableProducts (inherits IProduct, IPrint) - includes methods of counting days before spoilage,
-- IMovies (inherits IProduct, IPrint) - includes Genre and YearOfRelease properties.
+- IMovies (inherits IProduct, IPrint) - includes Genre and YearOfRelease properties,
+- IMeat (inherits IProduct, IPrint) - includes enum properties Category and TypeMeat,
+- IHouseholdChemicals (inherits IProduct, IPrint) - includes enum property AggregateState,
+- IStorage - includes Amount, TotalPrice properties.
  
 Also project has a superclass Product (implements IProduct, IComparable, IPrint) and subclasses: 
 
@@ -27,7 +30,8 @@ Also project has classes:
 The folder Enums has enums: 
 
 - Category - for the distribution of products by varieties,
-- TypeMeat - especially for Meat class.
+- TypeMeat - especially for Meat class,
+- AggregateState - especially for HouseholdChemicals class.
 
 The folder FileOperations has classes: 
 

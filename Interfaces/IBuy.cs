@@ -8,5 +8,6 @@ namespace Store.Interfaces
 {
     internal interface IBuy
     {
+        //abstraction decition for Buy
     }
 }

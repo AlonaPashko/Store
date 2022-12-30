@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Store.Enums
+namespace Store.Services
 {
-    public enum Types { Lamb, Veal, Pork, Chicken };
+    internal class Parser
+    {
+    }
 }

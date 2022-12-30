@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IExciseProducts : IProduct, IPrint
+    internal interface IExciseProducts : IProduct
     {
         public string LicenceID { get; set; }
         public int LicenceNumber { get; set; }

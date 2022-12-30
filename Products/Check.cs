@@ -14,10 +14,7 @@ namespace Store.Products
         {
             Console.WriteLine(buy);
         }
-        public static void CheckProduct(Product product)
-        {
-            Console.WriteLine(product);
-        }
+       
         public void Print()
         {
             Console.WriteLine("Check your purchases: ");

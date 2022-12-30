@@ -1,4 +1,5 @@
 ﻿using Store.Enums;
+using Store.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,22 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Store.Interfaces;
 
 namespace Store.Products
 {
-    internal class Meat : Product
+    internal class Meat : Product, IMeat
     {
-        public Type MeatType { get; set; }
+        public Types MeatType { get; set; }
         public Category MeatCategory { get; set; }
 
-        public Meat() : this(null, default, default, 0.0, 0.0) { }
+        //ctros
 
-        public Meat(string name, Type meatType, Category meatCategory, double weight, double price)
-            : base(name, weight, price)
-        {
-            MeatCategory = meatCategory;
-            MeatType = meatType;
-        }
         public override string ToString()
         {
             return base.ToString() + " Type: " + MeatType + " Category: " + MeatCategory;
@@ -31,39 +27,34 @@ namespace Store.Products
             return Name.Equals(((Meat)otherMeat).Name) &&
                 MeatType.Equals(((Meat)otherMeat).MeatType) &&
                 MeatCategory.Equals(((Meat)otherMeat).MeatCategory) &&
-                Weight.Equals(((Meat)otherMeat).Weight) &&
                 Price.Equals(((Meat)otherMeat).Price);
         }
-        public override double ChangePrice(int rate)
-        {
-            Console.WriteLine("Enter your category");
-            int userCategory = int.Parse(Console.ReadLine());
-            {
-                Console.WriteLine("Wrong input");
-            }
-            Category category;
-            category = (Category)Enum.GetValues(typeof(Category)).GetValue(userCategory - 1);
+        //public override double ChangePrice(int rate)
+        //{
+        //    Console.WriteLine("Enter your category");
+        //    int userCategory = int.Parse(Console.ReadLine());
+        //    {
+        //        Console.WriteLine("Wrong input");
+        //    }
+        //    Category category;
+        //    category = (Category)Enum.GetValues(typeof(Category)).GetValue(userCategory - 1);
 
-            switch (category)
-            {
-                case Category.Extra:
-                    Price = Price + Price * rate / 100.0 + (double)Category.Extra;
-                    break;
-                case Category.Sort1:
-                    Price = Price + Price * rate / 100 + (double)Category.Sort1;
-                    break;
-                default:
-                    Price = Price + Price * rate / 100 + (int)Category.Sort2;
-                    break;
-            }
-            return Price;
-        }
+        //    switch (category)
+        //    {
+        //        case Category.Extra:
+        //            Price = Price + Price * rate / 100.0 + (double)Category.Extra;
+        //            break;
+        //        case Category.Sort1:
+        //            Price = Price + Price * rate / 100 + (double)Category.Sort1;
+        //            break;
+        //        default:
+        //            Price = Price + Price * rate / 100 + (int)Category.Sort2;
+        //            break;
+        //    }
+        //    return Price;
+        //}
 
-        public override void Parse(string str)
-        {
-            base.Parse(str);
-            MeatType.ToString();
-            MeatCategory.ToString();
-        }
+
+      
     }
 }

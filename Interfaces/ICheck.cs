@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IFragileProducts : IProduct, IPrint
+    internal class ICheck
     {
-        public string Type { get; set; }
-        public string Marking { get; set; }
-
     }
 }

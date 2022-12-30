@@ -25,19 +25,19 @@ namespace Store.Products
         {
             Products = products;
             ProductsAmount = Products.Count();
-            TotalWeight = SetTotalWeight();
+            
             TotalPrice = SetTotalPrice();
 
         }
-        private double SetTotalWeight()
-        {
-            double totalWeight = 0.0;
-            foreach (Product product in Products)
-            {
-                totalWeight += product.Weight;
-            }
-            return totalWeight;
-        }
+        //private double SetTotalWeight()
+        //{
+        //    double totalWeight = 0.0;
+        //    foreach (Product product in Products)
+        //    {
+        //        totalWeight += product.Weight;
+        //    }
+        //    return totalWeight;
+        //}
         private double SetTotalPrice()
         {
             double totalPrice = 0.0;
@@ -104,16 +104,16 @@ namespace Store.Products
             TotalPrice = double.Parse(array[2]);
         }
         
-        public bool IsCorrectProduct(Product product)
-        {
-            if (product.Weight != 0 && product.Price != 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool IsCorrectProduct(Product product)
+        //{
+        //    if (product.Weight != 0 && product.Price != 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

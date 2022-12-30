@@ -17,10 +17,10 @@ namespace Store.FileOperation
             set { if (value != null) filePath = value; }
         }
 
-        //public FileReader()
-        //{
-        //    filePath = @"..\\..\\..\\Files\\Persons.txt";
-        //}
+        public FileReader()
+        {
+            filePath = @"..\\..\\..\\Files\\ListOfProducts.txt";
+        }
 
         public FileReader(string filePath)
         {

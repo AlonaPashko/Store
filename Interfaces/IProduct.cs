@@ -8,5 +8,10 @@ namespace Store.Interfaces
 {
     internal interface IProduct
     {
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Producent { get; set; }
+
+        public double ChangePrice(int rate);
     }
 }
