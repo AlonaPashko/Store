@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    public class Buy : IBuy
+    internal class Buy : Colleague, IBuy
     {
         private List<Product> products;
         private double productPriceSum;
@@ -19,15 +19,16 @@ namespace Store.Products
             get => productPriceSum;
             private set => productPriceSum = value;
         }
-       
-        public Buy() : this(new List<Product>()) { }
+        public Buy() : this("") { }
+        
+        public Buy(string msg) : this(new List<Product>()) { }
 
         public Buy(IEnumerable<Product> products)
         {
             this.products = new List<Product>(products);
             ProductPriceSum = products.Select(x => x.Price).Sum();
         }
-      
+
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -61,9 +62,27 @@ namespace Store.Products
         {
             products.Add(product);
         }
-        public void UpdateProductPriceSum()
+        public void UpdateProductPriceSum(string msg)
         {
             ProductPriceSum = products.Select(x => x.Price).Sum();
+        }
+
+        public override void Send(string msg)
+        {
+            mediator.Send(this.ToString(),this);
+        }
+
+        public override void Notify(string msg)
+        {
+            if (msg == "Print check, please")
+            {
+                Console.WriteLine("Buy successfully");
+                mediator.Send("OK", this);
+            }
+            else
+            {
+                Console.WriteLine("Smth was wrong");
+            }
         }
 
         //    public double ChangePrice(int rate)

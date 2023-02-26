@@ -38,3 +38,16 @@ Console.WriteLine(buy1);
 IBuy wrappedBuy1 = new WrappeedBuy(buy1);
 Console.WriteLine(wrappedBuy1);
 Console.WriteLine((wrappedBuy1 as WrappeedBuy).Wrap());
+
+Colleague colleague1 = new Check();
+Colleague colleague2 = new Buy();
+colleague2 = (Colleague)buy1;
+
+Mediator mediator1 = new Mediator();
+mediator1.SetColleague1(colleague1);
+mediator1.SetColleague2(colleague2);
+
+colleague1.SetMediator(mediator1);
+colleague2.SetMediator(mediator1);
+
+colleague1.Send("Print check, please");

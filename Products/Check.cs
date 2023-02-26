@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    internal static class Check
+    internal class Check : Colleague
     {
         private static int checkCounter = 1;
-        
-        public static void ClientInform(Buy buy)
+
+        public void ClientInform(Buy buy)
         {
-            buy.UpdateProductPriceSum();
+            //buy.UpdateProductPriceSum();
             Console.WriteLine();
             Console.WriteLine($"<--------- Check {checkCounter} ---------->");
             
@@ -25,7 +25,19 @@ namespace Store.Products
             Console.WriteLine($"Total Price: {buy.ProductPriceSum}");
 
             checkCounter++;
-               
+        }
+      
+        public override void Send(string msg)
+        {
+            mediator.Send(msg, this);
+        }
+
+        public override void Notify(string msg)
+        {
+            if (msg == "Print check, please")
+            {
+                Console.WriteLine("Buy successfully");
+            }
         }
     }
 }
