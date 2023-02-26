@@ -8,13 +8,21 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    public class Product : IProduct, IComparable
+    public class Product : IComparable
     {
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public string Producent { get; set; }
+        //public string Producent { get; set; }
 
+        public Product() { }
+        
+        public Product(string name, double price)
+        {
+            Name = name;
+            Price = price;
+        }
+        
         public double ChangePrice(int rate)
         {
             return 0;

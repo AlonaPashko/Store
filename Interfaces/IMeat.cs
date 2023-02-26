@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IMeat : IProduct, IPrint
+    internal interface IMeat : IProduct
     {
         public Types MeatType { get; set; }
         public Category MeatCategory { get; set; }
+        public double Weight { get; set; }
     }
 }

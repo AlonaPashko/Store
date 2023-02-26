@@ -11,6 +11,8 @@ namespace Store.Products
 {
     internal class DairyProducts : Product, IPerishableProducts
     {
+        public DairyProducts(string name, double price) : base(name, price) { }
+
         public DateTime ExpirationDate { get; set; }
 
         public int CountDaysBeforeSpoilage()

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal class ICheck
+    internal interface ICheck
     {
+        public string DisplayCheck(string message);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace Store.Interfaces
 {
     internal interface IBuy
     {
-        //abstraction decition for Buy
+        double ProductPriceSum { get; }
+        
+        void AddProduct(Product product);
     }
 }

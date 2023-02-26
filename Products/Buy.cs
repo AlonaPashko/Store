@@ -7,34 +7,64 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    public class Buy 
+    public class Buy : IBuy
     {
-        //    public string Name { get; set; }
-        //    public double Price { get; set; }
-        //    public string Producent { get; set; }
-        //    public int BoughtNumber { get; set; }
+        private List<Product> products;
+        private double productPriceSum;
 
-        //    public Buy() : this("", 0.0, "", 0) { }
+        public List<Product> ProductList => new List<Product>(products);
+        
+        public double ProductPriceSum
+        {
+            get => productPriceSum;
+            private set => productPriceSum = value;
+        }
+       
+        public Buy() : this(new List<Product>()) { }
 
-        //    public Buy(string name, double price, string producent, int boughtNumber)
-        //    {
-        //        Name = name;
-        //        Price = price;
-        //        Producent = producent;
-        //        BoughtNumber = boughtNumber;
-        //    }
-        //    public override string ToString()
-        //    {
-        //        return string.Format("Product: " + Name + " produced in " + Producent + " Numbers: "
-        //            + BoughtNumber + " Price: " + Price);
-        //    }
-        //    public override bool Equals(object? otherBuy)
-        //    {
-        //        return Name.Equals(((Buy)otherBuy).Name) &&
-        //            Price.Equals(((Buy)otherBuy).Price) &&
-        //            Producent.Equals(((Buy)otherBuy).Producent) &&
-        //            BoughtNumber.Equals(((Buy)otherBuy).BoughtNumber);
-        //    }
+        public Buy(IEnumerable<Product> products)
+        {
+            this.products = new List<Product>(products);
+            ProductPriceSum = products.Select(x => x.Price).Sum();
+        }
+      
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+            if (obj is Buy other && other.ProductList.Count == this.ProductList.Count)
+            {
+                for (int i = 0; i < ProductList.Count; i++)
+                {
+                    if (!Equals(ProductList[i], other.ProductList[i]))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        public override string ToString()
+        {
+            string line = "";
+            for (int i = 0; i < ProductList.Count; i++)
+            {
+                line += "Name: " + ProductList[i].Name + " Price: " + ProductList[i].Price + "\n"; 
+            }
+            return line;
+        }
+
+        public void AddProduct(Product product)
+        {
+            products.Add(product);
+        }
+        public void UpdateProductPriceSum()
+        {
+            ProductPriceSum = products.Select(x => x.Price).Sum();
+        }
 
         //    public double ChangePrice(int rate)
         //    {

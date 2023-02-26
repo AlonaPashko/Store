@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IFragileProducts : IProduct, IPrint
+    internal interface IFragileProducts : IProduct
     {
         public string Type { get; set; }
         public string Marking { get; set; }
-
     }
 }

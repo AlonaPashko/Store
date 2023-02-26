@@ -8,16 +8,24 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    public class Check : IPrint
+    internal static class Check
     {
+        private static int checkCounter = 1;
+        
         public static void ClientInform(Buy buy)
         {
-            Console.WriteLine(buy);
-        }
-       
-        public void Print()
-        {
-            Console.WriteLine("Check your purchases: ");
+            buy.UpdateProductPriceSum();
+            Console.WriteLine();
+            Console.WriteLine($"<--------- Check {checkCounter} ---------->");
+            
+            foreach (Product product in buy.ProductList)
+            {
+                Console.WriteLine(product);
+            }
+            Console.WriteLine($"Total Price: {buy.ProductPriceSum}");
+
+            checkCounter++;
+               
         }
     }
 }

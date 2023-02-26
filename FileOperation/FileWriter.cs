@@ -1,4 +1,5 @@
 ﻿using Store.Interfaces;
+using Store.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace Store.FileOperation
 {
+    delegate void RecyclingFileHandlerDelegate(Product product);
+    
     internal class FileWriter : IExpressionWriter
     {
         private string filePath;
@@ -33,4 +36,4 @@ namespace Store.FileOperation
         }
     }
 }
-}
+

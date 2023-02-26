@@ -1,4 +1,5 @@
-﻿using Store.Products;
+﻿using Store.Interfaces;
+using Store.Products;
 using Store.Services;
 
 HouseholdChemicals chemical1 = new HouseholdChemicals();
@@ -27,3 +28,13 @@ ExpiredProducts products3 = new ExpiredProducts();
 products3.AddExpireProduct(chemical1);
 products3.AddExpireProduct(chemical2);
 Console.WriteLine(products3);
+
+IBuy buy1 = new Buy();
+buy1.AddProduct(new Product("name1", 20)); 
+buy1.AddProduct(new Product("name2", 21));
+buy1.AddProduct(new Product("name3", 35));
+Console.WriteLine(buy1);
+
+IBuy wrappedBuy1 = new WrappeedBuy(buy1);
+Console.WriteLine(wrappedBuy1);
+Console.WriteLine((wrappedBuy1 as WrappeedBuy).Wrap());

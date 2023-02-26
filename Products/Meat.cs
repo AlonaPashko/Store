@@ -13,8 +13,11 @@ namespace Store.Products
 {
     internal class Meat : Product, IMeat
     {
+        public Meat(string name, double price) : base(name, price) { }
+
         public Types MeatType { get; set; }
         public Category MeatCategory { get; set; }
+        public double Weight { get; set; }
 
         //ctros
 

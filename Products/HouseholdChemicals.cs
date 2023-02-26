@@ -10,6 +10,10 @@ namespace Store.Products
 {
     internal class HouseholdChemicals : Product, IHouseholdChemicals
     {
+        public HouseholdChemicals(): base() { }
+        
+        public HouseholdChemicals(string name, double price) : base(name, price) { }
+
         public string Name { get; set; }
         public double Price { get; set; }
         public AggregateState State { get; set; }

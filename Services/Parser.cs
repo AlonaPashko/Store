@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Store.Services
 {
-    internal class Parser
+    internal static class Parser
     {
+        private static string line;
+        public static string Line { get => line; set => line = value; }
+
+        
     }
 }
