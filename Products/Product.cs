@@ -1,4 +1,5 @@
 ﻿using Store.Exceptions;
+using Store.FileOperation;
 using Store.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Store.Products
 {
-    public class Product : IComparable
+    public class Product : IComparable, IProduct
     {
         //public Guid Id { get; set; }
         public string Name { get; set; }
@@ -22,7 +23,7 @@ namespace Store.Products
             Name = name;
             Price = price;
         }
-        
+       
         public double ChangePrice(int rate)
         {
             return 0;
@@ -40,7 +41,9 @@ namespace Store.Products
             //return this.Name.CompareTo(((Product)obj).Name);
             return (obj as Product)?.Name.CompareTo(Name) ?? -1;
         }
-       
-
+        public override string ToString()
+        {
+            return Name + ": " + Price.ToString();
+        }
     }
 }

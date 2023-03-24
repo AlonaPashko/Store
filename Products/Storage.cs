@@ -1,5 +1,6 @@
 ﻿using Store.FileOperation;
 using Store.Interfaces;
+using Store.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,75 +12,43 @@ namespace Store.Products
 {
     internal class Storage : IStorage
     {
-        public event RecyclingFileHandlerDelegate WriteProduct;
+        public List<IProduct> Products { get; set; }
 
-        private int productsAmount;
-        private double totalPrice;
-
-        public int ProductsAmount { get; set; }
-        public double TotalPrice { get; set; }
-        public Dictionary<IProduct, int> StorageProducts { get; set; }
-
-        public override string ToString()
+        public Storage()
         {
-            return "";
+            Products = new List<IProduct>();
         }
-        public override bool Equals(object? otherStorage)
+        public Storage(string filePath)
         {
-            return ProductsAmount.Equals(((Storage)otherStorage).ProductsAmount) &&
-                TotalPrice.Equals(((Storage)otherStorage).TotalPrice);
-        }
-
-        
-
-        
-        //public Product this[int index] - indexer
-        //{
-        //    get
-        //    {
-        //        if (index >= 0 && index < Products.Count)
-        //        {
-        //            return Products[index];
-        //        }
-        //        else throw new ArgumentOutOfRangeException();
-        //    }
-        //    set
-        //    {
-        //        if (index >= 0 && index < Products.Count)
-        //        {
-        //            Products[index] = value;
-        //        }
-        //        else throw new ArgumentOutOfRangeException();
-        //    }
-        //}
-
-        public void Parse(string str)//parse string into class fields
-        {
-            string[] array = str.Split(' ');
-            productsAmount = int.Parse(array[0]);
-            TotalPrice = double.Parse(array[2]);
+            Products = ParseFromFile(filePath);
         }
 
         public void Add(IProduct product)
         {
-           //adding product to a storage
+            Products.Add(product);
         }
 
         public void Remove(IProduct product)
         {
-            //remove product from storage
+            Products.Remove(product);
         }
+        public List<IProduct> ParseFromFile(string filePath)
+        {
+            FileReader reader = new FileReader(filePath);
+            List<string> productsStr = reader.ReadExpression();
+            List<IProduct> productsList = new List<IProduct>();
 
-        //public bool IsCorrectProduct(Product product)
-        //{
-        //    if (product.Weight != 0 && product.Price != 0)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+            for (int i = 0; i < productsStr.Count; i++)
+            {
+                string[] arr = productsStr[i].Split("-", StringSplitOptions.RemoveEmptyEntries);
+                Product product = new Product{ Name = arr[0], Price = double.Parse(arr[1]) };
+                productsList.Add(product);
+            }
+            return productsList;
+        }
+        public override string ToString()
+        {
+            return Print.PrintList(Products);
+        }
     }
 }

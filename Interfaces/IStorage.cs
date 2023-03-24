@@ -8,7 +8,7 @@ namespace Store.Interfaces
 {
     internal interface IStorage
     {
-        public Dictionary<IProduct, int> StorageProducts { get; set; }
+        public List<IProduct> Products { get; set; }
        
         public void Add(IProduct product);
         public void Remove(IProduct product);
