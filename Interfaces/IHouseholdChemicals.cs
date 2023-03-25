@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IHouseholdChemicals : IProduct
+    internal interface IHouseholdChemicals : IMaterialProduct
     {
         public AggregateState State { get; set; }
     }

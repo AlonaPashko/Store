@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IFragileProducts : IMaterialProduct
+    internal interface IFood
     {
-        public string Type { get; set; }
-        public string Marking { get; set; }
     }
 }

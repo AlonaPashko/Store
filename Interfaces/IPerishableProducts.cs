@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IPerishableProducts : IProduct
+    internal interface IPerishableProducts : IMaterialProduct
     {
         public DateTime ExpirationDate { get; set; }
 

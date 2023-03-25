@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Store.Interfaces.IProduct">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAABAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IImmaterialProduct">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IImmaterialProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IMaterialProduct">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMaterialProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IFood">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IFood.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IExciseProducts">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IExciseProducts.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IFragileProducts">
+    <Position X="2.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAQAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IFragileProducts.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IHazardousMaterials">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IHazardousMaterials.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IHouseholdChemicals">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Interfaces\IHouseholdChemicals.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IMeat">
+    <Position X="4" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAIACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMeat.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IMovies">
+    <Position X="0.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMovies.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.Interfaces.IPerishableProducts">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAIAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPerishableProducts.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
