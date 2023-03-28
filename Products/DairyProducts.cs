@@ -11,18 +11,27 @@ namespace Store.Products
 {
     internal class DairyProducts : Product, IPerishableProducts
     {
-        public DairyProducts(string name, double price) : base(name, price) { }
-
         public DateTime ExpirationDate { get; set; }
 
+        public DairyProducts(string name, double price) : base(name, price) { }
+
+        public DairyProducts()
+        {
+            ExpirationDate = DateTime.Now;
+        }
+        public DairyProducts(string name, double price, DateTime date)
+        {
+            Name = name;
+            Price = price;
+            ExpirationDate = date;
+        }
         public int CountDaysBeforeSpoilage()
         {
-            return 0;
+            return (int)DateTime.Now.Subtract(ExpirationDate).TotalDays;
         }
-
-        public string PrintDayBeforeSpoilage()
+        public override string ToString()
         {
-            return CountDaysBeforeSpoilage().ToString();
+            return Name + " - " + Price.ToString() + " " + ExpirationDate.ToString("yyyy-MM-dd");
         }
     }
 }

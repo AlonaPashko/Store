@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IFood
+    internal interface IFood: IMaterialProduct
     {
     }
 }

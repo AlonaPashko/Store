@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Store.Interfaces
 {
-    internal interface IPerishableProducts : IMaterialProduct
+    internal interface IPerishableProducts : IFood
     {
         public DateTime ExpirationDate { get; set; }
 
         public int CountDaysBeforeSpoilage();
-
-        public string PrintDayBeforeSpoilage();
       
     }
 }
