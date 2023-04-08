@@ -14,18 +14,16 @@ namespace Store.Products
     {
         public List<IProduct> Products { get; set; }
 
-        public Storage()
-        {
-            Products = new List<IProduct>();
-        }
-        public Storage(string filePath)
-        {
-            Products = ParseFromFile(filePath);
-        }
+        public Storage() => Products = new List<IProduct>();
 
-        public void Remove(IProduct product)
+        public Storage(string filePath) => Products = ParseFromFile(filePath);
+
+        public event EventHandler AddingFreshProducts;
+
+        public List<IProduct> Remove(IProduct product)
         {
             Products.Remove(product);
+            return Products;
         }
         public List<IProduct> ParseFromFile(string filePath)
         {
@@ -41,14 +39,26 @@ namespace Store.Products
             }
             return productsList;
         }
+        public List<IProduct> Add(IProduct product)
+        {
+            if (product is DairyProducts)
+            {
+                if (!(product as DairyProducts).IsNormalDate())
+                {
+                    OnAddingFreshProducts(EventArgs.Empty); return Products;
+                }
+            }
+            Products.Add(product);
+            return Products;
+        }
+        protected virtual void OnAddingFreshProducts(EventArgs e)
+        {
+            AddingFreshProducts?.Invoke(this, e);
+        }
+        
         public override string ToString()
         {
             return Print.PrintList(Products);
-        }
-        
-        public void Add(IProduct product)
-        {
-            Products.Add(product);
         }
     }
 }

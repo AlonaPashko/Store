@@ -10,8 +10,8 @@ namespace Store.Interfaces
     {
         public List<IProduct> Products { get; set; }
        
-        public void Add(IProduct product);
-        public void Remove(IProduct product);
+        public List<IProduct> Add(IProduct product);
+        public List<IProduct> Remove(IProduct product);
         
     }
 }
