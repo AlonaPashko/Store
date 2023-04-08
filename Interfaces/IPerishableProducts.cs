@@ -9,8 +9,5 @@ namespace Store.Interfaces
     internal interface IPerishableProducts : IFood
     {
         public DateTime ExpirationDate { get; set; }
-
-        public int CountDaysBeforeSpoilage();
-      
     }
 }

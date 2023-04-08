@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Store.FileOperation
 {
-    delegate void RecyclingFileHandlerDelegate(Product product);
     
     internal class FileWriter : IExpressionWriter
     {
@@ -27,12 +26,15 @@ namespace Store.FileOperation
 
         public FileWriter(string filePath)
         {
-            this.filePath = filePath;
+            FilePath = filePath;
         }
 
-        public void WriteExpression(object obj, string filePath)
+        public void WriteExpression(object obj)
         {
-            throw new NotImplementedException();
+            using (StreamWriter writer = new StreamWriter(FilePath))
+            {
+                writer.Write(obj.ToString());
+            }
         }
     }
 }

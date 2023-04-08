@@ -23,11 +23,6 @@ namespace Store.Products
             Products = ParseFromFile(filePath);
         }
 
-        public void Add(IProduct product)
-        {
-            Products.Add(product);
-        }
-
         public void Remove(IProduct product)
         {
             Products.Remove(product);
@@ -41,7 +36,7 @@ namespace Store.Products
             for (int i = 0; i < productsStr.Count; i++)
             {
                 string[] arr = productsStr[i].Split("-", StringSplitOptions.RemoveEmptyEntries);
-                Product product = new Product{ Name = arr[0], Price = double.Parse(arr[1]) };
+                Product product = new Product { Name = arr[0], Price = double.Parse(arr[1]) };
                 productsList.Add(product);
             }
             return productsList;
@@ -49,6 +44,11 @@ namespace Store.Products
         public override string ToString()
         {
             return Print.PrintList(Products);
+        }
+        
+        public void Add(IProduct product)
+        {
+            Products.Add(product);
         }
     }
 }
