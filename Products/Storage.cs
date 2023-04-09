@@ -52,6 +52,7 @@ namespace Store.Products
                 if (!(product as DairyProducts).IsNormalDate())
                 {
                     Util.Add(product);
+                    Util.DoUtilizationFile(product);
                     OnAddingFreshProducts(EventArgs.Empty); return Products;
                 }
             }

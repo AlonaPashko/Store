@@ -1,4 +1,5 @@
-﻿using Store.Interfaces;
+﻿using Store.FileOperation;
+using Store.Interfaces;
 using Store.Services;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Store.Products
         {
             UtilizationList.Add(product);
             return UtilizationList;
+        }
+        public void DoUtilizationFile(IProduct product)
+        {
+            FileWriter writer = new FileWriter(@"..\\..\\..\\Files\\UtilizationList.txt");
+            writer.WriteExpression(product.ToString());
         }
         
         public override string ToString()
