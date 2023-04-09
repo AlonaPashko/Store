@@ -14,7 +14,13 @@ namespace Store.Products
     {
         public List<IProduct> Products { get; set; }
 
-        public Storage() => Products = new List<IProduct>();
+        public Utilization Util { get; set; }
+
+        public Storage()
+        {
+            Products = new List<IProduct>();
+            Util = new Utilization();
+        }
 
         public Storage(string filePath) => Products = ParseFromFile(filePath);
 
@@ -45,6 +51,7 @@ namespace Store.Products
             {
                 if (!(product as DairyProducts).IsNormalDate())
                 {
+                    Util.Add(product);
                     OnAddingFreshProducts(EventArgs.Empty); return Products;
                 }
             }
@@ -58,7 +65,8 @@ namespace Store.Products
         
         public override string ToString()
         {
-            return Print.PrintList(Products);
+            return "\n" + Print.PrintList(Products) + "\nUtilization List:\n\n" +
+                Print.PrintList(Util.UtilizationList);
         }
     }
 }
